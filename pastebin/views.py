@@ -29,3 +29,10 @@ def paste_get(request,key):
         paste = Paste.objects.get(url_key = key)
         
         return render(request, 'pastebin/view_paste.html', {'paste' : paste})
+
+def paste_fork(request,key):
+    
+    paste_forked = Paste.objects.get(url_key = key)
+    paste_form = PasteForm(instance=paste_forked)
+
+    return render(request, 'pastebin/new_paste.html',{'paste_form' : paste_form})
