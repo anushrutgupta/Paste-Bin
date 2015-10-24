@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<head>
+    <title>Pastebin</title>
+</head>
+
+<body>
+<form method="post" action="{% url 'pastebin:create' %}" >
+    {%csrf_token %}
+    {{ paste_form.as_p }}
+    <input type="submit" value="Create">
+</form>
+</body>
